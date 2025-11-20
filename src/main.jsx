@@ -11,7 +11,9 @@ console.log('Google Client ID (prod):', CLIENT_ID);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <GoogleOAuthProvider clientId={CLIENT_ID}>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </GoogleOAuthProvider>
   </StrictMode>,
 )
