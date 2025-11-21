@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 
+// hi
 // Used help of LLM to write this code, specifically the <AuthContext.Provider> + {children} 
 const AuthContext = createContext(null);
 
