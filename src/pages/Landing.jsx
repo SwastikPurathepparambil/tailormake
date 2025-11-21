@@ -21,7 +21,10 @@ export default function Landing() {
                 // navigate to Home Page
                 navigate('/home');
             }}
+            // Need to do something for Log In Error
             onError={() => {console.log("Log in Error")}} 
+
+            auto_select={true}
             />
      </>   
     )
