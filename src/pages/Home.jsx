@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FaPlus, FaUserCircle } from "react-icons/fa";
+import { FaFont, FaPlus, FaUserCircle } from "react-icons/fa";
+import { TbHexagonLetterA } from "react-icons/tb";
 
 // Sample resumes for preview
 const sampleResumes = [
@@ -14,6 +15,9 @@ const sampleResumes = [
 export default function Home() {
   const navigate = useNavigate();
 
+  const handleAnalyze = () => {
+    navigate("/analyze"); // change to your actual route
+  };
   const handleCreateResume = () => {
     navigate("/tailor"); // change to your actual route
   };
@@ -56,6 +60,9 @@ export default function Home() {
             color: "#1e293b",
           }}
         >
+          
+
+          <FaFont onClick={handleAnalyze} title="Analyze Resume" />
           <FaPlus onClick={handleCreateResume} title="Create New Resume" />
           <FaUserCircle onClick={handleProfile} title="Profile" />
         </div>
