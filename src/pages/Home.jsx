@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FaFont, FaPlus, FaUserCircle } from "react-icons/fa";
 import { TbHexagonLetterA } from "react-icons/tb";
+import { useAuth } from "../AuthContext";
+
 
 // Sample resumes for preview
 const sampleResumes = [
