@@ -3,29 +3,41 @@ import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 
+const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
+
 export default function Landing() {
 
     const navigate = useNavigate();
     const { setUser } = useAuth();
     
     return (
-     <>
-        <GoogleLogin
-            onSuccess={(credentials) => {
-                // testing check 1:
-                // check for whether the .credential field exists?
-                const userInfo = jwtDecode(credentials.credential);
+        <>
+            <GoogleLogin
+                onSuccess={async (credentials) => {
+                    try {
+                        const res = await fetch(`${API_URL}/auth/google`, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            credentials: "include",
+                            body: JSON.stringify({ token: credentials.credential }),
+                        });
 
-                setUser(userInfo)
+                        if (!res.ok) {
+                            console.error("Backend /auth/google failed");
+                            return;
+                        }
 
-                // navigate to Home Page
-                navigate('/home');
-            }}
-            // Need to do something for Log In Error
-            onError={() => {console.log("Log in Error")}} 
+                        const data = await res.json();
+                        setUser(data.user);
 
-            auto_select={true}
+                        navigate("/home");
+                    } catch (err) {
+                        console.error("Login error:", err);
+                    }
+                }}
+                onError={() => console.log("Login error")}
+                auto_select={true}
             />
-     </>   
+        </>   
     )
 }

@@ -4,26 +4,16 @@ import { Link } from 'react-router-dom';
 import Navbar from "../components/Navbar"
 
 export default function Home() {
-  const { user } = useAuth();
+    const { user, loading } = useAuth();
 
-  return (
-    <div>
-      {user ? (
-        // Add in User Functionality at the Home Page
-        <>
-          <div>
-            <Navbar>
-            </Navbar>
-            
+    if (loading) return <p>Loading...</p>;
 
-          </div>
-        </>
-      ) : (
-        // Create a React Component for No User Logged In
-        <>
-            <p>No user logged in.</p>
-        </>
-      )}
-    </div>
+    if (!user) return <p>No user logged in</p>;
+
+    return (
+    
+        <div>
+            <Navbar />
+        </div>
   );
 }
