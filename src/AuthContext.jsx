@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
 // hi
-// env redeploy
+// env redeploy 2
 // Used help of LLM to write this code, specifically the <AuthContext.Provider> + {children} 
 
 const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
