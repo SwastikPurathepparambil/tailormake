@@ -10,10 +10,38 @@ export default function Landing() {
   const navigate = useNavigate();
   const { setUser } = useAuth();
 
-  const handleGoogleSuccess = (credentials) => {
-    const userInfo = jwtDecode(credentials.credential);
-    setUser(userInfo);
-    navigate("/home");
+
+
+    // add in the handle Success using /auth/google so
+    // that the cookie loads
+  const handleGoogleSuccess = async (credentials) => {
+    try {
+      const googleToken = credentials.credential;
+
+      const res = await fetch(`${API_URL}/auth/google`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include", // 👈 IMPORTANT: allow cookie to be set
+        body: JSON.stringify({ token: googleToken }),
+      });
+
+      if (!res.ok) {
+        console.error("Backend /auth/google failed", res.status);
+        return;
+      }
+
+      const data = await res.json(); // { user: { id, email } }
+
+      // Store user from backend (matches /auth/me shape)
+      setUser(data.user);
+
+      // Go to home
+      navigate("/home");
+    } catch (err) {
+      console.error("Error during Google login:", err);
+    }
   };
 
   const handleGoogleError = () => {
