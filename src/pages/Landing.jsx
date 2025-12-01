@@ -4,6 +4,8 @@ import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 
+const API_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
+
 export default function Landing() {
   const navigate = useNavigate();
   const { setUser } = useAuth();
