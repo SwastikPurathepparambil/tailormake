@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FaFont, FaPlus, FaUserCircle } from "react-icons/fa";
-import { TbHexagonLetterA } from "react-icons/tb";
+//test
 
 // Sample resumes for preview
 const sampleResumes = [
