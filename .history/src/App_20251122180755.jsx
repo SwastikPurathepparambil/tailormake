@@ -11,7 +11,6 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />
         <Route path="/tailor" element={<Tailor />} />
-        
         <Route path="/preview-home" element={<Home />} />
       </Routes>
     </Router>
