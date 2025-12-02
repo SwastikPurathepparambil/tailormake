@@ -1,30 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaFont, FaPlus, FaUserCircle } from "react-icons/fa";
-//test
 
 // Sample resumes for preview
 const sampleResumes = [
-  { id: 1, jobTitle: "Software Engineer at Google", previewUrl: "" },
-  { id: 2, jobTitle: "UX Designer at Apple", previewUrl: "" },
-  { id: 3, jobTitle: "Data Scientist at Amazon", previewUrl: "" },
-  { id: 4, jobTitle: "Product Manager at Meta", previewUrl: "" },
+  { id: 1, jobTitle: "Software Engineer at Google", fileUrl: "/resumes/google.pdf" },
+  { id: 2, jobTitle: "UX Designer at Apple", fileUrl: "/resumes/apple.pdf" },
+  { id: 3, jobTitle: "Data Scientist at Amazon", fileUrl: "/resumes/amazon.pdf" },
+  { id: 4, jobTitle: "Product Manager at Meta", fileUrl: "/resumes/meta.pdf" },
 ];
-
 
 export default function Home() {
   const navigate = useNavigate();
 
-  const handleAnalyze = () => {
-    navigate("/analyze"); // change to your actual route
-  };
-  const handleCreateResume = () => {
-    navigate("/tailor"); // change to your actual route
-  };
+  const [selectedResume, setSelectedResume] = useState(null);
 
-  const handleProfile = () => {
-    navigate("/profile"); // change to your actual route
-  };
+  const handleAnalyze = () => navigate("/analyze");
+  const handleCreateResume = () => navigate("/tailor");
+  const handleProfile = () => navigate("/profile");
 
   return (
     <div
@@ -51,6 +44,7 @@ export default function Home() {
         <h1 style={{ fontSize: "24px", fontWeight: "700", color: "#1e293b" }}>
           TailorMake
         </h1>
+
         <div
           style={{
             display: "flex",
@@ -60,8 +54,6 @@ export default function Home() {
             color: "#1e293b",
           }}
         >
-          
-
           <FaFont onClick={handleAnalyze} title="Analyze Resume" />
           <FaPlus onClick={handleCreateResume} title="Create New Resume" />
           <FaUserCircle onClick={handleProfile} title="Profile" />
@@ -101,7 +93,7 @@ export default function Home() {
                 cursor: "pointer",
                 transition: "transform 0.2s, box-shadow 0.2s",
               }}
-              onClick={() => navigate(`/resume/${resume.id}`)}
+              onClick={() => setSelectedResume(resume)}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-4px)";
                 e.currentTarget.style.boxShadow = "0 12px 30px rgba(0,0,0,0.1)";
@@ -111,28 +103,14 @@ export default function Home() {
                 e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.06)";
               }}
             >
-              {/* Optional thumbnail */}
-              {resume.previewUrl ? (
-                <img
-                  src={resume.previewUrl}
-                  alt={`${resume.jobTitle} preview`}
-                  style={{
-                    height: "120px",
-                    borderRadius: "12px",
-                    marginBottom: "15px",
-                    objectFit: "cover",
-                  }}
-                />
-              ) : (
-                <div
-                  style={{
-                    height: "120px",
-                    borderRadius: "12px",
-                    background: "#e2e8f0",
-                    marginBottom: "15px",
-                  }}
-                ></div>
-              )}
+              <div
+                style={{
+                  height: "120px",
+                  borderRadius: "12px",
+                  background: "#e2e8f0",
+                  marginBottom: "15px",
+                }}
+              ></div>
 
               <h3
                 style={{
@@ -144,13 +122,80 @@ export default function Home() {
               >
                 {resume.jobTitle}
               </h3>
-              <p style={{ fontSize: "14px", color: "#64748b" }}>
-                {resume.resumeName}
-              </p>
             </div>
           ))}
         </div>
       </main>
+
+      {/* === MODAL POPUP === */}
+      {selectedResume && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0,0,0,0.4)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            zIndex: 200,
+          }}
+        >
+          <div
+            style={{
+              background: "white",
+              width: "400px",
+              padding: "30px",
+              borderRadius: "16px",
+              boxShadow: "0 10px 40px rgba(0,0,0,0.15)",
+              position: "relative",
+            }}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setSelectedResume(null)}
+              style={{
+                position: "absolute",
+                top: "12px",
+                right: "12px",
+                fontSize: "22px",
+                fontWeight: "700",
+                border: "none",
+                background: "transparent",
+                cursor: "pointer",
+              }}
+            >
+              ×
+            </button>
+
+            <h3
+              style={{
+                fontSize: "20px",
+                fontWeight: "700",
+                marginBottom: "20px",
+                color: "#1e293b",
+              }}
+            >
+              {selectedResume.jobTitle}
+            </h3>
+
+            <a
+              href={selectedResume.fileUrl}
+              download
+              style={{
+                display: "inline-block",
+                padding: "12px 18px",
+                background: "#1e293b",
+                color: "white",
+                borderRadius: "10px",
+                textDecoration: "none",
+                fontWeight: "600",
+              }}
+            >
+              Download Resume
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
