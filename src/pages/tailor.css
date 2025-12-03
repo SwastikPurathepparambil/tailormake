@@ -1,0 +1,324 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+
+:root {
+  --jt-bg: #ffffff;
+  --jt-page-bg: #f5f7fa;
+  --jt-text-main: #111827;
+  --jt-text-muted: #475569;
+  --jt-border: #d1d5db;
+  --jt-gray-200: #e5e7eb;
+  --jt-gray-300: #d1d5db;
+  --jt-gray-400: #9ca3af;
+  --jt-shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.06);
+  --jt-shadow-card: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Root layout */
+.jt-root {
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: var(--jt-bg);
+  color: var(--jt-text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+.jt-center-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--jt-page-bg);
+}
+
+/* Title */
+.jt-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  text-align: center;
+  margin-bottom: 3.5rem;
+  color: #111827;
+}
+
+@media (min-width: 768px) {
+  .jt-title {
+    font-size: 4rem;
+  }
+}
+
+/* Form container */
+.jt-form-wrapper {
+  width: 100%;
+  max-width: 72rem; /* similar to max-w-6xl */
+}
+
+.jt-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Columns */
+.jt-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .jt-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.jt-column {
+  position: relative;
+}
+
+/* Floating chip labels */
+.jt-chip {
+  position: absolute;
+  top: -1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--jt-gray-300);
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #111827;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+/* Resume card */
+.jt-resume-card {
+  position: relative;
+  height: 520px;
+  border-radius: 0.75rem;
+  border: 1px solid var(--jt-border);
+  background-color: var(--jt-gray-200);
+  box-shadow: var(--jt-shadow-soft);
+}
+
+/* Visually hidden input */
+.jt-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+/* Dropzone */
+.jt-resume-dropzone {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.jt-resume-inner {
+  pointer-events: none;
+  user-select: none;
+}
+
+.jt-icon-circle {
+  margin: 0 auto 1.5rem;
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(156, 163, 175, 0.7);
+  background-color: rgba(209, 213, 219, 0.9);
+}
+
+.jt-resume-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1f2933;
+}
+
+.jt-resume-helper {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* Work experience card */
+.jt-work-card {
+  position: relative;
+  height: 520px;
+  border-radius: 0.75rem;
+  border: 1px solid var(--jt-border);
+  background-color: var(--jt-gray-200);
+  box-shadow: var(--jt-shadow-soft);
+}
+
+.jt-work-textarea {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.75rem;
+  border: none;
+  background-color: transparent;
+  padding: 1.5rem;
+  font-size: 1rem;
+  color: #1f2933;
+  resize: none;
+  outline: none;
+}
+
+.jt-work-textarea::placeholder {
+  color: #4b5563;
+}
+
+/* Job link input */
+.jt-joblink-wrapper {
+  width: 100%;
+}
+
+.jt-joblink-input {
+  display: block;
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--jt-border);
+  background-color: var(--jt-gray-200);
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #1f2933;
+  box-shadow: var(--jt-shadow-soft);
+  outline: none;
+}
+
+.jt-joblink-input::placeholder {
+  color: #1f2933;
+}
+
+.jt-joblink-input:focus {
+  border-color: #9ca3af;
+}
+
+/* Submit button */
+.jt-submit-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jt-submit-btn {
+  border-radius: 0.5rem;
+  background-color: #9ca3af;
+  padding: 0.75rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  box-shadow: 0 4px 10px rgba(75, 85, 99, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease,
+    box-shadow 0.15s ease;
+}
+
+.jt-submit-btn:hover:not(:disabled) {
+  background-color: #6b7280;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(75, 85, 99, 0.4);
+}
+
+.jt-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.jt-submit-btn:focus {
+  outline: 2px solid #374151;
+  outline-offset: 2px;
+}
+
+/* Status / result section */
+.jt-status-section {
+  margin-top: 1.5rem;
+}
+
+.jt-status-card {
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  border: 1px solid var(--jt-border);
+  background-color: #ffffff;
+  box-shadow: var(--jt-shadow-card);
+}
+
+.jt-status-loading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.jt-status-error {
+  border-color: #f97373;
+  background-color: #fef2f2;
+}
+
+.jt-status-success {
+  border-color: #4ade80;
+  background-color: #f0fdf4;
+}
+
+.jt-status-text {
+  font-size: 0.95rem;
+  color: var(--jt-text-muted);
+}
+
+/* Spinner */
+.jt-spinner {
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #6b7280;
+  animation: jt-spin 0.7s linear infinite;
+}
+
+@keyframes jt-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Result */
+.jt-result-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #065f46;
+  margin-bottom: 0.75rem;
+}
+
+.jt-result-block {
+  white-space: pre-wrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9rem;
+  background-color: #ecfdf5;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px dashed #6ee7b7;
+  margin-bottom: 0.75rem;
+}
+
+.jt-result-notes {
+  font-size: 0.9rem;
+  color: #064e3b;
+}

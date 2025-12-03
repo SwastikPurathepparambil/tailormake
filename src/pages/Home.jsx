@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { FaFont, FaPlus, FaUserCircle } from "react-icons/fa";
 import { TbHexagonLetterA } from "react-icons/tb";
 import { useAuth } from "../AuthContext";
+import { googleLogout } from "@react-oauth/google";
 
+const API_URL = import.meta.env.VITE_BACKEND_URL || "/api";
 
 // Sample resumes for preview
 const sampleResumes = [
@@ -15,6 +17,8 @@ const sampleResumes = [
 
 
 export default function Home() {
+
+    const { user, loading, setUser } = useAuth();
     const navigate = useNavigate();
 
     const handleAnalyze = () => {
@@ -24,13 +28,25 @@ export default function Home() {
         navigate("/tailor"); // change to your actual route
     };
 
-    const handleProfile = () => {
-        navigate("/profile"); // change to your actual route
+    const handleProfile = async () => {
+        // navigate("/profile"); // change to your actual route
+        // here we want to handle a logout
+        // should probably change the icon too
+        try {
+            await fetch(`${API_URL}/auth/logout`, {
+                method: "POST",
+                credentials: "include", // send the cookie so backend can delete it
+            });
+        } catch (e) {
+            console.error("Error calling /auth/logout", e);
+        } finally {
+            // Clear frontend state no matter what
+            setUser(null);
+            googleLogout();           // clear Google session
+            navigate("/", { replace: true });
+        }
     };
 
-
-
-    const { user, loading } = useAuth();
 
     if (loading) return <p>Loading...</p>;
 

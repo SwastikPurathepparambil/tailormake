@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +8,13 @@ const API_URL = import.meta.env.VITE_BACKEND_URL || "/api";
 
 export default function Landing() {
   const navigate = useNavigate();
-  const { setUser } = useAuth();
+  const { user, loading, setUser } = useAuth();
+
+  useEffect(() => {
+    if (!loading && user) {
+      navigate("/home", { replace: true });
+    }
+  }, [user, loading, navigate]);
 
 
 
