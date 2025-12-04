@@ -1,0 +1,99 @@
+/* Page container reused layout */
+.tailor-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+  
+    font-family: "Inter", sans-serif;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  /* Form, loading, and result screens share this wrapper */
+  .tailor-screen {
+    background: white;
+    padding: 32px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  }
+  
+  /* Resume drop/upload box */
+  .resume-dropzone {
+    border: 2px dashed #94a3b8;
+    border-radius: 16px;
+    padding: 28px;
+    text-align: center;
+    color: #475569;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .resume-dropzone:hover {
+    background: #f1f5f9;
+    border-color: #64748b;
+  }
+  
+  /* Inputs */
+  .tailor-input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  
+  .tailor-input:focus {
+    border-color: #475569;
+  }
+  
+  /* Submit button */
+  .tailor-btn {
+    background: #1e293b;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+  }
+  
+  .tailor-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  
+  .tailor-btn:hover:not(:disabled) {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+  
+  /* Error text */
+  .error-text {
+    color: #e11d48;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  /* Loading screen */
+  .loading-text {
+    font-size: 18px;
+    text-align: center;
+    padding: 40px;
+    color: #334155;
+  }
+  
+  /* Result section */
+  .result-box {
+    padding: 20px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  
