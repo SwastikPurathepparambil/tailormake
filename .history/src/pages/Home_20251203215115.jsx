@@ -15,7 +15,7 @@ export default function Home() {
   const [listLoading, setListLoading] = useState(false);
   const [listError, setListError] = useState(null);
 
-  //detect preview mode for no-auth tsting
+  //detect preview mode
   const isPreview = location.pathname === "/preview-home";
 
   const handleOpenPdf = (id) => {
@@ -27,7 +27,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    
+    // ⭐ In preview mode: DO NOT fetch anything
     if (isPreview) return;
 
     if (!user) return;
@@ -68,7 +68,7 @@ export default function Home() {
           <h2 className="main-title">Preview: Your Tailors</h2>
 
           <p className="empty-msg">
-            (Preview mode -- no auth for testing.)
+            (Preview mode — you are not logged in, so example cards are shown.)
           </p>
 
           <div className="card-grid">

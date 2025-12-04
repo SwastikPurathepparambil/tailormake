@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "../styles/tailor.css";
+import "../styles/pages.css";
 import Navbar from "../components/Navbar";
 import TailorFormScreen from "../tailor_comps/TailorForm";
-import TailorLoadingScreen from "../tailor_comps/TailorLoading";
-import TailorResultScreen from "../tailor_comps/TailorResult";
+import TailorLoadingScreen from "..tailor_comps/TailorLoading";
+import TailorResultScreen from "..tailor_comps/TailorResult";
 import { useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_BACKEND_URL || "/api";

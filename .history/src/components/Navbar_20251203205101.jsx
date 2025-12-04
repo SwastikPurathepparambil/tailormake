@@ -9,7 +9,7 @@ const API_URL = import.meta.env.VITE_BACKEND_URL || "/api";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const {  setUser } = useAuth();
+  const { user, setUser } = useAuth();
 
   const handleAnalyze = () => navigate("/analyze");
   const handleCreateResume = () => navigate("/tailor");

@@ -1,0 +1,270 @@
+/* Container for the entire Tailor page */
+.tailor-container {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    background: #f5f7fa;
+  }
+  
+  .tailor-main {
+    padding: 40px;
+  }
+  
+  /* Shared wrapper for form, loading, and result screens */
+  .tailor-screen {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    margin-top: 20px;
+  }
+  
+  /* Back button */
+  .tailor-link-btn {
+    background: transparent;
+    border: none;
+    color: #2563eb;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .tailor-link-btn:hover {
+    text-decoration: underline;
+  }
+  
+  /* Form title */
+  .tailor-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 20px;
+  }
+  
+  /* Columns layout for resume upload + work experience */
+  .tailor-columns {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  /* Each column (resume / work experience) */
+  .tailor-column {
+    flex: 1;
+    min-width: 280px;
+  }
+  
+  .tailor-column-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 10px;
+  }
+  
+  /* Resume drop/upload box */
+  .tailor-resume-card {
+    border-radius: 12px;
+    background: repeating-linear-gradient(
+      45deg,
+      #e2e8f0,
+      #e2e8f0 10px,
+      #cbd5e5 10px,
+      #cbd5e5 20px
+    );
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .tailor-resume-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Resume name and helper text */
+  .tailor-resume-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 6px;
+  }
+  
+  .tailor-resume-helper {
+    font-size: 13px;
+    color: #64748b;
+  }
+  
+  /* Textarea for work experience */
+  .tailor-work-textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    resize: vertical;
+    transition: border-color 0.2s;
+  }
+  
+  .tailor-work-textarea:focus {
+    border-color: #475569;
+  }
+  
+  /* Job link input */
+  .tailor-joblink-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .tailor-joblink-input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  
+  .tailor-joblink-input:focus {
+    border-color: #475569;
+  }
+  
+  /* Submit button */
+  .tailor-submit-btn {
+    background: #1e293b;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+  }
+  
+  .tailor-submit-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  
+  .tailor-submit-btn:hover:not(:disabled) {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+  
+  /* Error text */
+  .tailor-error-text {
+    color: #e11d48;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  /* Loading screen */
+  .tailor-loading-inner {
+    text-align: center;
+    padding: 60px;
+    color: #1e293b;
+  }
+  
+  .tailor-loading-text {
+    font-size: 16px;
+    color: #64748b;
+    margin-top: 10px;
+  }
+  
+  .tailor-spinner {
+    border: 4px solid #e2e8f0;
+    border-top: 4px solid #1e293b;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 20px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Result screen */
+  .tailor-result-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .tailor-primary-btn {
+    background: #1e293b;
+    color: white;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    flex: 1;
+    min-width: 120px;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+  }
+  
+  .tailor-primary-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+  
+  .tailor-secondary-btn {
+    background: #f1f5f9;
+    color: #1e293b;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    flex: 1;
+    min-width: 120px;
+    transition: background 0.2s ease, transform 0.1s ease;
+  }
+  
+  .tailor-secondary-btn:hover {
+    background: #e2e8f0;
+    transform: translateY(-1px);
+  }
+  
+  /* PDF iframe */
+  .tailor-pdf-frame {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  }
+  
+  /* Fallback for raw JSON result */
+  .tailor-result-block {
+    background: #f1f5f9;
+    padding: 16px;
+    border-radius: 12px;
+    overflow-x: auto;
+    font-size: 14px;
+    color: #334155;
+    font-family: monospace;
+  }

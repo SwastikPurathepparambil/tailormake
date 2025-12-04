@@ -1,15 +1,14 @@
 import React from "react";
-import { FaFont, FaPlus, FaUserCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { FaFont, FaPlus, FaUserCircle } from "react-icons/fa";
 import { useAuth } from "../AuthContext";
-import "../styles/navbar.css";
 import { googleLogout } from "@react-oauth/google";
 
 const API_URL = import.meta.env.VITE_BACKEND_URL || "/api";
 
 export default function Navbar() {
+  const { setUser } = useAuth();
   const navigate = useNavigate();
-  const {  setUser } = useAuth();
 
   const handleAnalyze = () => navigate("/analyze");
   const handleCreateResume = () => navigate("/tailor");
@@ -21,22 +20,21 @@ export default function Navbar() {
         credentials: "include",
       });
     } catch (e) {
-      console.error("logout error", e);
+      console.error("Error calling /auth/logout", e);
     } finally {
-      googleLogout();
       setUser(null);
+      googleLogout();
       navigate("/", { replace: true });
     }
   };
 
   return (
-    <nav className="navbar-container">
-      <h1 className="navbar-logo">TailorMake</h1>
-
+    <nav className="navbar">
+      <h1 className="navbar-title">TailorMake</h1>
       <div className="navbar-icons">
         <FaFont onClick={handleAnalyze} title="Analyze Resume" />
         <FaPlus onClick={handleCreateResume} title="Create New Resume" />
-        <FaUserCircle onClick={handleProfile} title="Profile / Logout" />
+        <FaUserCircle onClick={handleProfile} title="Profile" />
       </div>
     </nav>
   );

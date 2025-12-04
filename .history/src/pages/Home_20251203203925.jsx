@@ -1,35 +1,23 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import "../styles/pages.css";
+import "../styles/pages.css"; // reuse general page styling
 import { useAuth } from "../AuthContext";
-import { useNavigate, useLocation } from "react-router-dom";
+
 
 const API_URL = import.meta.env.VITE_BACKEND_URL || "/api";
 
 export default function Home() {
-  const navigate = useNavigate();
-  const location = useLocation();
+  
   const { user, loading, setUser } = useAuth();
-
   const [tailoredResumes, setTailoredResumes] = useState([]);
   const [listLoading, setListLoading] = useState(false);
   const [listError, setListError] = useState(null);
 
-  //detect preview mode for no-auth tsting
-  const isPreview = location.pathname === "/preview-home";
-
   const handleOpenPdf = (id) => {
-    window.open(
-      `${API_URL}/tailored-resumes/${id}/pdf`,
-      "_blank",
-      "noopener,noreferrer"
-    );
+    window.open(`${API_URL}/tailored-resumes/${id}/pdf`, "_blank", "noopener,noreferrer");
   };
 
   useEffect(() => {
-    
-    if (isPreview) return;
-
     if (!user) return;
 
     const fetchTailoredResumes = async () => {
@@ -57,34 +45,8 @@ export default function Home() {
     };
 
     fetchTailoredResumes();
-  }, [user, setUser, isPreview]);
+  }, [user, setUser]);
 
-  // ⭐ In preview mode: always render page content
-  if (isPreview) {
-    return (
-      <div className="page-container">
-        <Navbar />
-        <main className="page-main">
-          <h2 className="main-title">Preview: Your Tailors</h2>
-
-          <p className="empty-msg">
-            (Preview mode -- no auth for testing.)
-          </p>
-
-          <div className="card-grid">
-            <div className="resume-card">
-              <div className="resume-thumbnail"></div>
-              <h3 className="resume-title">Example Resume</h3>
-              <p className="resume-filename">software-engineer.pdf</p>
-              <p className="resume-created">Created: Just now</p>
-            </div>
-          </div>
-        </main>
-      </div>
-    );
-  }
-
-  // Normal logic for logged-in users
   if (loading) return <p>Loading...</p>;
   if (!user) return <p>No user logged in</p>;
 
@@ -108,11 +70,8 @@ export default function Home() {
 
         <div className="card-grid">
           {tailoredResumes.map((resume) => {
-            const title =
-              resume.jobLink || resume.filename || "Tailored Resume";
-            const created =
-              resume.createdAt &&
-              new Date(resume.createdAt).toLocaleString();
+            const title = resume.jobLink || resume.filename || "Tailored Resume";
+            const created = resume.createdAt && new Date(resume.createdAt).toLocaleString();
 
             return (
               <div
@@ -121,15 +80,9 @@ export default function Home() {
                 onClick={() => handleOpenPdf(resume.id)}
               >
                 <div className="resume-thumbnail"></div>
-                <h3 className="resume-title" title={title}>
-                  {title}
-                </h3>
-                {resume.filename && (
-                  <p className="resume-filename">{resume.filename}</p>
-                )}
-                {created && (
-                  <p className="resume-created">Created: {created}</p>
-                )}
+                <h3 className="resume-title" title={title}>{title}</h3>
+                {resume.filename && <p className="resume-filename">{resume.filename}</p>}
+                {created && <p className="resume-created">Created: {created}</p>}
               </div>
             );
           })}

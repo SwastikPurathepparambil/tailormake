@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/tailor.css";
+import "../styles/pages.css";
 import Navbar from "../components/Navbar";
 import TailorFormScreen from "../tailor_comps/TailorForm";
 import TailorLoadingScreen from "../tailor_comps/TailorLoading";

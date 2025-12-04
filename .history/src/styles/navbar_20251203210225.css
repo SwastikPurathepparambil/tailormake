@@ -1,0 +1,43 @@
+
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 40px;
+  background: white;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  font-family: "Inter", sans-serif;
+}
+
+
+.navbar-logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+
+.navbar-icons {
+  display: flex;
+  gap: 20px;
+  font-size: 22px;
+  color: #1e293b;
+}
+
+.navbar-icons svg {
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+
+.navbar-icons svg:hover {
+  transform: scale(1.15);
+}

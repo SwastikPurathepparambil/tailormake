@@ -2,15 +2,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Tailor from "./pages/Tailor";
-import Landing from "./pages/Landing";
-// import Login from "./pages/Login";
+import Login from "./pages/Login";
 
 function App() {
   return (
     <Router>
       <Routes>
         {/* Normal app routes */}
-        <Route path="/" element={<Landing />} />
+        {/* <Route path="/" element={<Login />} /> */}
         <Route path="/home" element={<Home />} />
         <Route path="/tailor" element={<Tailor />} />
 

@@ -68,7 +68,7 @@ export default function Home() {
           <h2 className="main-title">Preview: Your Tailors</h2>
 
           <p className="empty-msg">
-            (Preview mode -- no auth for testing.)
+            (Preview mode — you are not logged in, so example cards are shown.)
           </p>
 
           <div className="card-grid">
