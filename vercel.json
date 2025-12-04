@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://tmbackend-1-rkob.onrender.com/:path*"
+      "destination": "https://tmserver-j9yf.onrender.com/api/:path*"
     },
     {
       "source": "/(.*)",
