@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFont, FaPlus, FaUserCircle } from "react-icons/fa";
+import { FaPen, FaPlus, FaUserCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 import "../styles/navbar.css";
@@ -34,7 +34,7 @@ export default function Navbar() {
       <h1 className="navbar-logo">TailorMake</h1>
 
       <div className="navbar-icons">
-        <FaFont onClick={handleAnalyze} title="Analyze Resume" />
+        <FaPen onClick={handleAnalyze} title="Analyze Resume" />
         <FaPlus onClick={handleCreateResume} title="Create New Resume" />
         <FaUserCircle onClick={handleProfile} title="Profile / Logout" />
       </div>
