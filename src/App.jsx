@@ -4,7 +4,6 @@ import Home from "./pages/Home";
 import Tailor from "./pages/Tailor";
 import Landing from "./pages/Landing";
 import ResumeWorkshop from "./pages/Analyze";
-// import Login from "./pages/Login";
 
 function App() {
   return (
