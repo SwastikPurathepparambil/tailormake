@@ -184,3 +184,7 @@ Connected to Mongo!
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
 ```
+
+### Diagram 1: Component Diagram
+![Untitled (Draft)-1](https://github.com/user-attachments/assets/b10aee8b-1634-4f96-973f-7568b1dd7033)
+
