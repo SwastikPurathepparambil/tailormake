@@ -89,13 +89,13 @@ http://localhost:5173
 
 ## Backend Setup (IMPORTANT)
 
-THE BACKEND LIVES IN A SEPARATE REPO. COPY AND GO TO SAID LINK, BUT FOLLOW INSTRUCTIONS FROM THIS README.md
+THE BACKEND LIVES IN A SEPARATE REPO.
 
 ```text
 https://github.com/SwastikPurathepparambil/tmserver
 ```
 
-Do NOT follow the instructions in that repo — use the instructions below instead.
+Do NOT follow the instructions in that repo, use the instructions below.
 
 ### 1. Python Requirements
 
