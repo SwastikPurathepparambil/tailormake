@@ -186,5 +186,5 @@ INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
 ```
 
 ### Diagram 1: Component Diagram
+<img width="863" height="510" alt="Screenshot 2025-12-05 at 2 25 11 PM" src="https://github.com/user-attachments/assets/42d3dc75-4317-4507-aa7b-09377402e175" />
 
-![Untitled (Draft)-1](https://github.com/user-attachments/assets/738ea5b7-04bc-4664-905c-559d72069465)
