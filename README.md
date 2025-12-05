@@ -89,7 +89,7 @@ http://localhost:5173
 
 ## Backend Setup (IMPORTANT)
 
-The backend lives in a separate repository:
+THE BACKEND LIVES IN A SEPARATE REPO. COPY AND GO TO SAID LINK, BUT FOLLOW INSTRUCTIONS FROM THIS README.md
 
 ```text
 https://github.com/SwastikPurathepparambil/tmserver
