@@ -2,13 +2,13 @@
 
 AI-powered resume tailoring and workshop assistant.
 
-## 🚀 Installation & Local Development Setup
+## Installation & Local Development Setup
 
 This guide explains how to run both the frontend and backend locally for development.
 
 ---
 
-## 🔹 Frontend Setup
+## Frontend Setup
 
 ### 1. Clone the repository
 
@@ -50,12 +50,12 @@ VITE_GOOGLE_CLIENT_ID=<your-client-id>.apps.googleusercontent.com
 VITE_BACKEND_URL=http://localhost:8000
 ```
 
-#### 📌 How to obtain `VITE_GOOGLE_CLIENT_ID`
+#### How to obtain `VITE_GOOGLE_CLIENT_ID`
 
 You must create an OAuth 2.0 Client ID in the Google Cloud Console.  
-More detailed instructions can be added here:
+A detailed set of instructions to create the appropriate OAuth can be found here:
 
-👉 `<insert_link_here>`
+https://www.youtube.com/watch?v=GuHN_ZqHExs
 
 Typical local redirect URI:
 
@@ -87,9 +87,8 @@ http://localhost:5173
 
 ---
 
-## 🔹 Backend Setup
+## 🔹 Backend Setup (IMPORTANT)
 
-⚠️ IMPORTANT:  
 The backend lives in a separate repository:
 
 ```text
