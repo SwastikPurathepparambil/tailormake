@@ -1,66 +1,153 @@
-# Tailormake
+# TailorMake
 
-## Installation + Setup
+AI-powered resume tailoring and workshop assistant.
 
-### Frontend
+---
 
+## 🚀 Installation & Local Development Setup
+
+This guide explains how to run both the frontend and backend locally for development.
+
+---
+
+## 🔹 Frontend Setup
+
+### 1. Clone the repository
+
+```bash
 git clone https://github.com/SwastikPurathepparambil/tailormake
 cd tailormake
-first: nvm install --lts
+2. Install Node.js (LTS recommended)
+If using nvm:
 
+bash
+Copy code
+nvm install --lts
+nvm use --lts
+3. Install frontend dependencies
+bash
+Copy code
 npm install
+4. Create and configure environment variables
+Create a .env.local file:
 
-Configure the ENV:
+bash
+Copy code
+touch .env.local
+Add the required variables:
 
-VITE_GOOGLE_CLIENT_ID=<>.apps.googleusercontent.com
+bash
+Copy code
+# Google OAuth Client ID
+VITE_GOOGLE_CLIENT_ID=<your-client-id>.apps.googleusercontent.com
 
-To create VITE_GOOGLE_CLIENT_ID, you have to create a google oauth ID setup in the Google Console. Follow <some_link_to_add_here>
+# Backend API URL
+VITE_BACKEND_URL=http://localhost:8000
+📌 How to obtain VITE_GOOGLE_CLIENT_ID
+You must create an OAuth 2.0 Client ID in the Google Cloud Console.
+More instructions can be added here:
 
-VITE_BACKEND_URL=http://localhost:8000 
+👉 <insert_link_here>
 
-then finally run: npm run dev
+Local redirect URI typically:
 
-Should see:
+text
+Copy code
+http://localhost:5173
+5. Start the frontend dev server
+bash
+Copy code
+npm run dev
+You should see:
 
-> tailormake@0.0.0 dev
-> vite
+text
+Copy code
+VITE v7.2.2  ready in 145 ms
 
+➜  Local:   http://localhost:5173/
+➜  Network: use --host to expose
+➜  Press h + enter to show help
+Open:
 
-  VITE v7.2.2  ready in 145 ms
+👉 http://localhost:5173
 
-  ➜  Local:   http://localhost:5173/
-  ➜  Network: use --host to expose
-  ➜  press h + enter to show help
+🔹 Backend Setup
+⚠️ IMPORTANT:
+The backend lives in a separate repository:
+👉 https://github.com/SwastikPurathepparambil/tmserver
 
+Do NOT follow the instructions in that repo — use the instructions below instead.
 
-### Backend (VERY IMPORTANT NOTE HERE)
+1. Python Requirements
+The backend requires:
 
-The backend is at another URL: https://github.com/SwastikPurathepparambil/tmserver
+text
+Copy code
+Python >= 3.10 and < 3.14
+Check your version:
 
-Don't look at any of the instructions there.
-
-Ensure you have Python >=3.10 <3.14 installed on your system. This project uses UV for dependency management and package handling, offering a seamless setup and execution experience.
-
-to set it up, make sure you have uv package installer. Use:
-
+bash
+Copy code
+python3 --version
+2. Install uv (Python environment manager)
+bash
+Copy code
 curl -LsSf https://astral.sh/uv/install.sh | sh
+Verify:
 
-then do a uv sync at the root directory
+bash
+Copy code
+uv --version
+3. Install backend dependencies
+In the backend root directory:
 
-then create a .env file:
+bash
+Copy code
+uv sync
+This installs all dependencies from pyproject.toml, including:
 
+FastAPI
+
+Uvicorn
+
+Pydantic
+
+MongoDB driver
+
+CrewAI
+
+4. Add environment variables
+Create a .env file:
+
+bash
+Copy code
 touch .env
+Add:
 
-inside, add in env vars:
-MODEL=<model>
-OPENAI_API_KEY=<key>
-MONGO_URI=<MONGO_URI>
-SERPER_API_KEY=<SERPER_API_KEY>
+bash
+Copy code
+MODEL=<model-name>
+OPENAI_API_KEY=<your-openai-key>
+MONGO_URI=<your-mongo-uri>
+SERPER_API_KEY=<your-serper-api-key>
+These are required for the AI pipelines and database integration.
 
-Then, go into the /src/tmserver folder and call uv run api.py
+5. Start the backend server
+Navigate to:
 
+bash
+Copy code
+cd src/tmserver
+Run the server:
 
-Built tmserver @ file:///Users/swastik/Desktop/tmserver
+bash
+Copy code
+uv run api.py
+Expected output:
+
+text
+Copy code
+Built tmserver @ file:///path/to/tmserver
 Uninstalled 1 package in 1ms
 Installed 1 package in 3ms
 INFO:     Started server process [19991]
