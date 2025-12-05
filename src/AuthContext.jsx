@@ -1,9 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
-// hi
-// env redeploy 2
-// Used help of LLM to write this code, specifically the <AuthContext.Provider> + {children} 
-
 const API_URL = import.meta.env.VITE_BACKEND_URL || "/api";
 
 const AuthContext = createContext(null);
