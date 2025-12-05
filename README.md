@@ -87,7 +87,7 @@ http://localhost:5173
 
 ---
 
-## 🔹 Backend Setup (IMPORTANT)
+## Backend Setup (IMPORTANT)
 
 The backend lives in a separate repository:
 
