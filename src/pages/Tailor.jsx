@@ -4,7 +4,9 @@ import Navbar from "../components/Navbar";
 import TailorFormScreen from "../tailor_comps/TailorForm";
 import TailorLoadingScreen from "../tailor_comps/TailorLoading";
 import TailorResultScreen from "../tailor_comps/TailorResult";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useAuth } from "../AuthContext";
+
 
 const API_URL = import.meta.env.VITE_BACKEND_URL || "/api";
 
@@ -19,6 +21,7 @@ export default function Tailor() {
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
+  const { user, loading, setUser } = useAuth(); 
 
   const goHome = () => navigate("/home");
 
@@ -92,6 +95,9 @@ export default function Tailor() {
   };
 
   const canSubmit = jobLink.trim().length > 0;
+
+  if (loading) return <p>Loading...</p>
+  if (!user) return <Navigate to="/" replace />
 
   return (
     <div className="page-container">

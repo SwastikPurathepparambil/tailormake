@@ -15,8 +15,8 @@ function App() {
         <Route path="/tailor" element={<Tailor />} />
         <Route path="/analyze" element={<ResumeWorkshop />} />
 
-        {/* ⭐ PREVIEW ROUTE — NO AUTH REQUIRED */}
-        <Route path="/preview-home" element={<Home />} />
+        {/* ⭐ PREVIEW ROUTE — NO AUTH REQUIRED
+        <Route path="/preview-home" element={<Home />} /> */}
       </Routes>
     </Router>
   );

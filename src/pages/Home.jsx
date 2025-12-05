@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/pages.css";
 import { useAuth } from "../AuthContext";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Navigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_BACKEND_URL || "/api";
 
@@ -86,7 +86,7 @@ export default function Home() {
 
   // Normal logic for logged-in users
   if (loading) return <p>Loading...</p>;
-  if (!user) return <p>No user logged in</p>;
+  if (!user) return <Navigate to="/" replace />
 
   return (
     <div className="page-container">

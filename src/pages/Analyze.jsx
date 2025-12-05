@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "../styles/tailor.css";
 import Navbar from "../components/Navbar";
 
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import WorkshopResult from "./workshop_comps/WorkshopResult";
 import WorkshopLoading from "./workshop_comps/WorkshopLoading";
 import WorkshopForm from "./workshop_comps/WorkshopForm";
+import { useAuth } from "../AuthContext";
 
 const API_URL = import.meta.env.VITE_BACKEND_URL || "/api";
 
@@ -21,6 +22,8 @@ export default function ResumeWorkshop() {
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
+  const { user, loading, setUser } = useAuth(); 
+  
   const goHome = () => navigate("/home");
 
   const handleFile = (file) => {
@@ -112,6 +115,9 @@ export default function ResumeWorkshop() {
   // allow submit if EITHER a focus or a link is provided
   const canSubmit =
     workshopFocus.trim().length > 0 || jobLink.trim().length > 0;
+
+  if (loading) return <p>Loading...</p>
+  if (!user) return <Navigate to="/" replace />
 
   return (
     <div className="page-container">
