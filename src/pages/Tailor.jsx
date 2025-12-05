@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "../styles/tailor.css";
 import Navbar from "../components/Navbar";
-import TailorFormScreen from "../tailor_comps/TailorForm";
-import TailorLoadingScreen from "../tailor_comps/TailorLoading";
-import TailorResultScreen from "../tailor_comps/TailorResult";
+import TailorFormScreen from "../components/tailor_comps/TailorForm";
+import TailorLoadingScreen from "../components/tailor_comps/TailorLoading";
+import TailorResultScreen from "../components/tailor_comps/TailorResult";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
 

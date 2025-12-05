@@ -3,9 +3,9 @@ import "../styles/tailor.css";
 import Navbar from "../components/Navbar";
 
 import { Navigate, useNavigate } from "react-router-dom";
-import WorkshopResult from "./workshop_comps/WorkshopResult";
-import WorkshopLoading from "./workshop_comps/WorkshopLoading";
-import WorkshopForm from "./workshop_comps/WorkshopForm";
+import WorkshopResult from "../components/workshop_comps/WorkshopResult";
+import WorkshopLoading from "../components/workshop_comps/WorkshopLoading";
+import WorkshopForm from "../components/workshop_comps/WorkshopForm";
 import { useAuth } from "../AuthContext";
 
 const API_URL = import.meta.env.VITE_BACKEND_URL || "/api";
